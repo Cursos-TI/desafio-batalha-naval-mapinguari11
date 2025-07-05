@@ -10,6 +10,7 @@ int main() {
 
     int tabuleiro[10][11]; //11 colunas para poder implementar a coluna dos números do tabuleiro.
 
+    //inicializa o tabuleiro
     for (int i = 0; i < 10; i++)
     {
         for (int j = 0; j < 11; j++)
@@ -38,6 +39,36 @@ int main() {
     tabuleiro[5][8] = 3; 
     tabuleiro[6][8] = 3;
     tabuleiro[7][8] = 3;
+
+    //Primeira diagonal - não vai ser a diagonal principal, porque a matriz é 10x11 (apesar do tabuleiro ser 10x10). É a diagonal que começa do A2 e vai até o I10
+    for (int i = 0; i < 10; i++)
+    {
+        for (int j = 0; j < 11; j++)
+        {
+            if (i == j && i >= 4 && i <=6)
+            {
+                if(tabuleiro[i][j] == 3) break;
+                tabuleiro[i][j] = 3;
+            }
+            
+        }
+    }
+
+    //Segunda diagonal - Não é a segunda diagonal principal, mas sim a diagonal que vai do C1 ao A3.
+    for (int i = 0; i < 5; i++) // i< 5 porque a a coluna 0 não tem letra
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            if (i+j == 3 && i < 3) // i < 3 porque em i == 3 tabuleiro[3][0] == 4, que é a coluna de referência do tabuleiro
+            {
+                tabuleiro[i][j] = 3;
+            }
+            
+        }
+        
+    }
+    
+    
 
     printf("   A B C D E F G H I J\n"); //para gerar a linha no topo do tabuleiro
     for (int i = 0; i < 10; i++)
