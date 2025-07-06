@@ -68,7 +68,62 @@ int main() {
         
     }
     
-    
+    //Cone - O 1 representa a área afetada. O 5 representa partes de navio que foram atingidas pelo cone (se alguma for afetada)
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 11; j++)
+        {
+            if ((i == 0 && j == 8) || (i == 1 && j >= 7 && j <= 9) || (i == 2 && j >=6 && j <= 10))
+            {
+                if (tabuleiro[i][j] == 3) {
+                    tabuleiro[i][j] = 5;
+                } else
+                {
+                    tabuleiro[i][j] = 1;
+                }
+            }
+            
+        }
+        
+    }
+
+    //Octaedro - O 1 representa a área afetada. O 5 representa partes de navio que foram atingidas pelo cone (se alguma for afetada)
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            if ((i == 0 && j == 3) || (i == 1 && j >= 2 && j <= 4) || (i == 2 && j ==3))
+            {
+                if (tabuleiro[i][j] == 3) {
+                    tabuleiro[i][j] = 5;
+                } else
+                {
+                    tabuleiro[i][j] = 1;
+                }
+            }
+            
+        }
+        
+    }
+
+    //Cruz - O 1 representa a área afetada. O 5 representa partes de navio que foram atingidas pelo cone (se alguma for afetada)
+    for (int i = 0; i < 10; i++)
+    {
+        for (int j = 0; j < 11; j++)
+        {
+            if ((i == 5 && j == 7) || (i == 6 && j >= 5 && j <= 9) || (i == 7 && j == 7))
+            {
+                if (tabuleiro[i][j] == 3) {
+                    tabuleiro[i][j] = 5;
+                } else
+                {
+                    tabuleiro[i][j] = 1;
+                }
+            }
+            
+        }
+        
+    }
 
     printf("   A B C D E F G H I J\n"); //para gerar a linha no topo do tabuleiro
     for (int i = 0; i < 10; i++)
